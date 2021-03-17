@@ -81,6 +81,7 @@ function tick() {
 		max.disabled = "true";
 		min.disabled = "true";
 		type.disabled = "true";
+		settings.backgroundColor = "#d0d0d0";
 	}
 	if(p.time <= 0) {
 		input.disabled = "true";
@@ -160,6 +161,7 @@ var timer = document.getElementById("timer");
 var stats = document.getElementById("stats");
 var max = document.getElementById("max");
 var min = document.getElementById("min");
+var settings = document.getElementById("settings");
 var type = document.getElementById("type");
 type.onmousedown = changeType;
 var reset = document.getElementById("reset");
