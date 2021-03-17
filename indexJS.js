@@ -1,10 +1,10 @@
 var p = {
-	type: "add",
+	type: "mult",
 	displayType() {switch(this.type) { case "mult":return "Multiplication";case "add":return "Addition"; }},
 	problem: {},
 	right: 0,
 	wrong: 0,
-	max: 9,
+	max: 10,
 	min: 1,
 	time: 1200,
 	timeMax: 1200,
@@ -87,8 +87,8 @@ function tick() {
 		indicator.style.backgroundColor = "white";
 		p.running = false;
 	}
-	if(p.max !== max.value) {p.max = max.value;generate(p.type, p.max, p.min)}
-	if(p.min !== min.value) {p.min = min.value;generate(p.type, p.max, p.min)}
+	if(p.max !== max.value) {p.max = max.value;generate(p.type, p.max, p.min);}
+	if(p.min !== min.value) {p.min = min.value;generate(p.type, p.max, p.min);}
 	timer.value = p.time/p.timeMax*100;
 	type.innerHTML = "Type: " + p.displayType();
 	stats.innerHTML = `
