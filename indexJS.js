@@ -1,10 +1,11 @@
 var p = {
-	type: "mult",
+	type: "add",
 	displayType() {switch(this.type) { case "mult":return "Multiplication";case "add":return "Addition"; }},
+	displayPart() {switch(this.type) { case "mult":return "Factor";case "add":return "Summand"; }},
 	problem: {},
 	right: 0,
 	wrong: 0,
-	max: 10,
+	max: 9,
 	min: 1,
 	time: 1200,
 	timeMax: 1200,
@@ -88,7 +89,9 @@ function tick() {
 		p.running = false;
 	}
 	if(p.max !== max.value) {p.max = max.value;generate(p.type, p.max, p.min);}
+	document.getElementsByClassName("option")[0].innerHTML = "Minimum " + p.displayPart() + ":";
 	if(p.min !== min.value) {p.min = min.value;generate(p.type, p.max, p.min);}
+	document.getElementsByClassName("option")[0].innerHTML = "Maximum " + p.displayPart() + ":";
 	timer.value = p.time/p.timeMax*100;
 	type.innerHTML = "Type: " + p.displayType();
 	stats.innerHTML = `
