@@ -79,11 +79,12 @@
 	transform: translate(200px, -15px);
 	border-radius: 5px;
 	padding: 15px;
-	line-height: 0px;
+	line-height: 20px;
 }
 .setting {
 	font-size: 16px;
 	line-height: 20px;
+	margin: 0px;
 }
 
 button {
