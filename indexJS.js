@@ -81,7 +81,7 @@ function tick() {
 		max.disabled = "true";
 		min.disabled = "true";
 		type.disabled = "true";
-		settings.style.backgroundColor = "#d0d0d0";
+		settings.style.backgroundColor = "white";
 	}
 	if(p.time <= 0) {
 		input.disabled = "true";
@@ -139,7 +139,7 @@ function restart() {
 	min.removeAttribute("disabled");
 	type.removeAttribute("disabled");
 	indicator.style.backgroundColor = "white";
-	settings.style.backgroundColor = "white";
+	settings.style.backgroundColor = "#d0d0d0";
 }
 
 function changeType() {
