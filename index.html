@@ -1,159 +1,23 @@
-<style>
-#box {
-	width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#container {
-	box-shadow: inset 0px 0px 15px white;
-	width: 385px;
-    height: 400px;
-    border-radius: 30px;
-    background-color: #e0e0e0;
-}
-
-#display {
-	width: 140px;
-    height: 40px;
-	background-color: white;
-	position: absolute;
-	transform: translate(15px, 15px);
-	padding: 15px;
-	font-size: 35px;
-    border-radius: 7.5px;
-    border-top-left-radius: 15px;
-	box-shadow: 0px 0px 15px white;
-}
-
-#input {
-	width: 270px;
-	height: 70px;
-	position: absolute;
-	transform: matrix(1,0,0,1,15,100);
-	font-size: 35px;
-    border: 0;
-    border-radius: 7.5px;
-	box-shadow: 0px 0px 15px white;
-}
-
-#stats {
-	width: 140px;
-	height: 135px;
-	background-color: white;
-	transform: matrix(1,0,0,1,15,220);
-	padding: 15px;
-	font-size: 30px;
-	line-height: 45px;
-    border-radius: 7.5px;
-    border-bottom-left-radius: 15px;
-	box-shadow: 0px 0px 15px white;
-}
-
-#type {
-	width: 170px;
-    height: 70px;
-    transform: matrix(1,0,0,1,200,-150);
-    border-radius: 7.5px;
-    border-top-right-radius: 15px;
-	box-shadow: 0px 0px 15px white;
-    font-size: 18px;
-}
-
-#reset {
-	width: 170px;
-    height: 40px;
-    transform: matrix(1,0,0,1,25,165);
-    border-radius: 5px;
-    border-bottom-right-radius: 15px;
-	box-shadow: 0px 0px 15px white;
-    font-size: 16px;
-}
-
-#settings {
-	width: 140px;
-    height: 80px;
-	box-shadow: 0px 0px 15px white;
-    background-color: white;
-    transform: translate(200px, -15px);
-    border-radius: 5px;
-	padding: 15px;
-	font-size: 16px;
-    line-height: 20px;
-}
-
-button {
-    border: 0px;
-    background-color: #d0d0d0;
-}
-
-#timer {
-	width: 355px;
-	height: 20px;
-	background-color: transparent;
-	position: absolute;
-	transform: matrix(1,0,0,1,15,185);
-}
-
-progress[value]::-webkit-progress-bar {
-	background-color: white;
-    border-radius: 7.5px;
-	box-shadow: 0px 0px 15px white;
-}
-
-progress[value]::-webkit-progress-value {
-	background-color: green;
-    border-radius: 7.5px;
-}
-
-#indicator {
-	width: 70px;
-	height: 70px;
-	position: absolute;
-	transform: matrix(1,0,0,1,300,100);
-    border-radius: 7.5px;
-	box-shadow: 0px 0px 15px white;
-	animation-duration: 0.5s;
-    animation-timing-function: ease;
-}
-
-.wrong {
-	animation-name: wrong;
-}
-
-.right {
-	animation-name: right;
-}
-
-@keyframes wrong {
-	0% {background-color: red;}
-	100% {background-color: white;}
-}
-
-@keyframes right {
-	0% {background-color: green;}
-	100% {background-color: white;}
-}
-
-input:not(#input) {
-	width: 140px;
-    height: 20px;
-    font-size: 18px;
-}
-</style>
-
-<div id="box">
-	<div id="container">
-		<div class="read" id="display"></div>
-	    <input  type="number" id="input" autocomplete=off>
-    	<div class="" id="indicator"></div>
-	    <progress id="timer" value="0" max="100"></progress>
-	    <div class="read" id="stats"></div>
-	    <button id="type"></button>
-        <button id="reset">Reset Timer + Stats</button>
-        <div id="settings">Minimum Summand:<br><input id="min" value="1" type="number" autocomplete="off"><br>Maximum Summand:<br><input id="max" value="9" type="number" autocomplete="off"></div>
+<html>
+	<head>
+		<link rel="stylesheet" href="indexCSS.css">
+	</head>
+	<body>
+	<div id="box">
+		<div id="container">
+			<div class="read" id="display"></div>
+		    <input  type="number" id="input" autocomplete=off>
+    		<div class="" id="indicator"></div>
+		    <progress id="timer" value="0" max="100"></progress>
+		    <div class="read" id="stats"></div>
+		    <button id="type"></button>
+        	<button id="reset">Reset Timer + Stats</button>
+        	<div id="settings">
+			Minimum Summand:<br>
+			<input id="min" value="1" type="number" autocomplete="off"><br>
+			Maximum Summand:<br>
+			<input id="max" value="9" type="number" autocomplete="off">
+		</div>
 	</div>
 </div>
 
@@ -332,3 +196,5 @@ indicator.style.backgroundColor = "white";
 tick();
 setInterval(tick, 1000/p.step);
 </script>
+	</body>
+</html>
