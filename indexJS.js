@@ -89,9 +89,9 @@ function tick() {
 		p.running = false;
 	}
 	if(p.max !== max.value) {p.max = max.value;generate(p.type, p.max, p.min);}
-	document.getElementsByClassName("option")[0].innerHTML = "Minimum " + p.displayPart() + ":";
+	//document.getElementsByClassName("option")[0].innerHTML = "Minimum " + p.displayPart() + ":";
 	if(p.min !== min.value) {p.min = min.value;generate(p.type, p.max, p.min);}
-	document.getElementsByClassName("option")[0].innerHTML = "Maximum " + p.displayPart() + ":";
+	//document.getElementsByClassName("option")[0].innerHTML = "Maximum " + p.displayPart() + ":";
 	timer.value = p.time/p.timeMax*100;
 	type.innerHTML = "Type: " + p.displayType();
 	stats.innerHTML = `
