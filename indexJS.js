@@ -170,9 +170,15 @@ function restart() {
 function changeType() {
 	switch(p.type) {
 		case "add":
+			p.type = "sub";
+			break;
+		case "sub":
 			p.type = "mult";
 			break;
 		case "mult":
+			p.type = "div";
+			break;
+		case "div":
 			p.type = "add";
 			break;
 	}
