@@ -83,7 +83,7 @@ function newProblem(type, max, min) {
 		case "add":
 			return addProblem(max, min);
 		case "sub":
-			return addProblem(max, min);
+			return subProblem(max, min);
 	}
 }
 
