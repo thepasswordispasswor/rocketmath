@@ -44,8 +44,8 @@ function multProblem(max, min) {
 	let list = [];
 	let values = [];
 	let factor, product, problem;
-	for(var i = min; i <= max; i++) {
-		for(var o = min; o <= max; o++) {
+	for(let i = min; i <= max; i++) {
+		for(let o = min; o <= max; o++) {
 			if(values.includes(i*o) && list[values.indexOf(i*o)].product === i*o) {
 				list[values.indexOf(i*o)].factorpairs.push([i,o]);
 				continue;
@@ -67,19 +67,23 @@ function addProblem(max, min) {
 }
 
 function subProblem(max, min) {
-	let sum = Math.max(2,2*min)+Math.floor(Math.random()*(max*2+1-Math.max(2,2*min)));
-	let summand = Math.max(min, sum-max) + Math.floor(Math.random() * Math.min(sum-(2*min), 0-sum+(2*max)));
-	return new Problem("sub", summand, sum);
+	let inverse = addProblem(max, min);
+	let temp = inverse;
+	inverse.answer = temp.part1;
+	inverse.part1 = temp.answer;
+	inverse.op = "-";
+	inverse.type = "sub";
+	return inverse;
 }
 
 function newProblem(type, max, min) {
 	switch(type) {
 		case "mult":
 			return multProblem(max, min);
-			break;
 		case "add":
 			return addProblem(max, min);
-			break;
+		case "sub":
+			return addProblem(max, min);
 	}
 }
 
