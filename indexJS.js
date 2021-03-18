@@ -68,7 +68,7 @@ function addProblem(max, min) {
 
 function subProblem(max, min) {
 	let inverse = addProblem(max, min);
-	let temp = inverse;
+	let temp = Object.assign({}, inverse);
 	inverse.answer = temp.part1;
 	inverse.part1 = temp.answer;
 	inverse.op = "-";
