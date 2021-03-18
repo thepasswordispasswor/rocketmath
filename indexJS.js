@@ -1,7 +1,9 @@
 var p = {
 	type: "add",
-	displayType() {switch(this.type) { case "mult":return "Multiplication";case "add":return "Addition"; }},
-	displayPart() {switch(this.type) { case "mult":return "Factor";case "add":return "Summand"; }},
+	formalOperation() {switch(this.type) { 	case "mult": return "Multiplication";	case "add": return "Addition";	case "sub": return "Subtraction";	case "div": return "Division"; }},
+	formalAnswer() {switch(this.type) { 	case "mult": return "Product";		case "add": return "Sum";	case "sub": return "Difference";	case "div": return "Quotient"; }},
+	formalSubject() {switch(this.type) { 	case "mult": return "Factor";		case "add": return "Summand";	case "sub": return "Minuend";		case "div": return "Dividend"; }},
+	formalAffect() {switch(this.type) { 	case "mult": return "Factor";		case "add": return "Summand";	case "sub": return "Subtrahend";	case "div": return "Divisor"; }},
 	problem: {},
 	right: 0,
 	wrong: 0,
@@ -64,6 +66,12 @@ function addProblem(max, min) {
 	return new Problem("add", summand, sum);
 }
 
+function subProblem(max, min) {
+	let sum = Math.max(2,2*min)+Math.floor(Math.random()*(max*2+1-Math.max(2,2*min)));
+	let summand = Math.max(min, sum-max) + Math.floor(Math.random() * Math.min(sum-(2*min), 0-sum+(2*max)));
+	return new Problem("sub", summand, sum);
+}
+
 function newProblem(type, max, min) {
 	switch(type) {
 		case "mult":
@@ -91,11 +99,11 @@ function tick() {
 	}
 	if(max.value <= min.value) {min.value = max.value;}
 	if(p.max !== max.value) {p.max = max.value;generate(p.type, p.max, p.min);}
-	document.getElementsByClassName("setting").item(0).innerHTML = "Minimum " + p.displayPart() + ":";
+	document.getElementsByClassName("setting").item(0).innerHTML = "Minimum " + p.formalAffect() + ":";
 	if(p.min !== min.value) {p.min = min.value;generate(p.type, p.max, p.min);}
-	document.getElementsByClassName("setting").item(1).innerHTML = "Maximum " + p.displayPart() + ":";
+	document.getElementsByClassName("setting").item(1).innerHTML = "Maximum " + p.formalAffect() + ":";
 	timer.value = p.time/p.timeMax*100;
-	type.innerHTML = "Type: " + p.displayType();
+	type.innerHTML = "Type: " + p.formalOperation();
 	stats.innerHTML = `
 	Right: ${p.right}<br>
 	Wrong: ${p.wrong}<br>
