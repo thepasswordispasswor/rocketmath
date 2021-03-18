@@ -24,7 +24,7 @@ function Problem(type, part1, answer, part2 = undefined) {
 			this.part1 = part1;
 			this.part2 = (part2 === undefined) ? answer/part1:part2;
 			this.type = type;
-			this.op = "*";
+			this.op = "×";
 			break;
 		case "add":
 			this.answer = answer;
@@ -60,6 +60,16 @@ function multProblem(max, min) {
 	return new Problem("mult", factor, product);
 }
 
+function divProblem(max, min) {
+	let inverse = multProblem(max, min);
+	let temp = Object.assign({}, inverse);
+	inverse.answer = temp.part1;
+	inverse.part1 = temp.answer;
+	inverse.op = "÷";
+	inverse.type = "div";
+	return inverse;
+}
+
 function addProblem(max, min) {
 	let sum = Math.max(2,2*min)+Math.floor(Math.random()*(max*2+1-Math.max(2,2*min)));
 	let summand = Math.max(min, sum-max) + Math.floor(Math.random() * Math.min(sum-(2*min), 0-sum+(2*max)));
@@ -78,12 +88,14 @@ function subProblem(max, min) {
 
 function newProblem(type, max, min) {
 	switch(type) {
-		case "mult":
-			return multProblem(max, min);
 		case "add":
 			return addProblem(max, min);
 		case "sub":
 			return subProblem(max, min);
+		case "mult":
+			return multProblem(max, min);
+		case "div":
+			return divProblem(max, min);
 	}
 }
 
